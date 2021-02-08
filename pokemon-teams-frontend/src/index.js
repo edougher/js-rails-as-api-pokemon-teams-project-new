@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3000"
+                const BASE_URL = "http://localhost:3000"
 const TRAINERS_URL = `${BASE_URL}/trainers`
 const POKEMONS_URL = `${BASE_URL}/pokemons`
 
@@ -30,7 +30,7 @@ function getPokemon() {
 
 //create the Trainer cards
 function createCards(t){
-const body = document.querySelector('body')
+const main = document.querySelector('main')
 const newDiv = document.createElement('div')
 newDiv.className = 'card'
 newDiv.setAttribute("data-id", t.id)
