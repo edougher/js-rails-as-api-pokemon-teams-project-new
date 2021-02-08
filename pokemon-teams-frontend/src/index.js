@@ -31,9 +31,14 @@ function getPokemon() {
 //create the Trainer cards
 function createCards(t){
 const body = document.querySelector('body')
- const newDiv = document.createElement('div')
- newDiv.className = 'card'
+const newDiv = document.createElement('div')
+newDiv.className = 'card'
+newDiv.setAttribute("data-id", t.id)
 
+const button = document.createElement('button')
+button.setAttribute("data-trainer-id", t.id)
+button.innerHTML = "Add Pokemon"
+newDiv.appendChild(button)
  const pTag = document.createElement('p')
 //create ul to hold li's
 const ul = document.createElement('ul')
@@ -45,11 +50,13 @@ const li = document.createElement('li')
  newDiv.appendChild(pTag)
  //append newDiv to body(that will hold all the divs)
  body.appendChild(newDiv)
- 
- //   ###***   TODO iterate through allPokemon and find the ones that have a trainer_id that is equal to t.id
- //find the each pokemon that is associated with this trainer
- //const myPokemon = myPokemon = allPokemon.forEach(pokemon => pokemon.trainer_id).trainer_id)
- console.log(allPokemon)
-  
+
+
+ allPokemon.forEach(pokemon => {
+    if (pokemon.trainer_id === t.id)
+    li.innerHTML = pokemon.nickname
+    ul.appendChild(li)
+    newDiv.appendChild(ul)
+});
 
 }
